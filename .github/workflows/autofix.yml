@@ -1,4 +1,5 @@
-name: autofix.ci
+name: autofix.ci  # needed to securely identify the workflow
+
 on:
   pull_request:
   push:
@@ -11,12 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v5
-      - uses: actions/setup-node@v4
 
-      - run: npm ci
-      - run: npx prettier --write .
-      # or, if you are using yarn:
-      # - run: yarn
-      # - run: yarn prettier --write .
+      # TODO: add all code-fixing here.
 
       - uses: autofix-ci/action@635ffb0c9798bd160680f18fd73371e355b85f27
